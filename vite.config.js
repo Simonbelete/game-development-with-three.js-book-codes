@@ -11,5 +11,5 @@ export default defineConfig({
             ch1hello: resolve(__dirname, 'chapter-1/hello/index.html'),
           }
         }
-      }
+    }
 })
