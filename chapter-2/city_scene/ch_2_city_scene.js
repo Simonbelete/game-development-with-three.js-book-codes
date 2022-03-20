@@ -13,6 +13,7 @@ const renderer = new THREE.WebGL1Renderer({antialias: true});
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement)
 
+// camera.position.y = 400;
 camera.position.y = 400;
 camera.position.z = 400;
 camera.rotation.x = -45 * Math.PI / 180; // Tilt the camera to 45deg

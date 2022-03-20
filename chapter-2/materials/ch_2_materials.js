@@ -18,6 +18,12 @@ normalMesh.position.x = -1;
 normalMesh.position.y = 5;
 scene.add(normalMesh);
 
+const depthMaterial = new THREE.MeshDepthMaterial()
+const depthlMesh = new THREE.Mesh(geometry, depthMaterial);
+depthlMesh.position.x = 0;
+depthlMesh.position.y = 0;
+scene.add(depthlMesh);
+
 const renderer = new THREE.WebGL1Renderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 
