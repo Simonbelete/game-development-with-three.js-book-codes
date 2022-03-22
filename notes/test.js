@@ -8,33 +8,26 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
 document.body.appendChild(renderer.domElement);
 
-const geometry = new THREE.BoxGeometry(1, 1, 1);
-const material = new THREE.MeshBasicMaterial({color: 0xff0000, wireframe: true});
+// CODE HERE ...
+const geometry = new THREE.BoxGeometry();
+const texture = new THREE.TextureLoader().load('./images.jpeg');
+const material = new THREE.MeshBasicMaterial({color: 0xfd59d7}); //new THREE.MeshPhongMaterial({color: 0x90abed, map: texture ,transparent: true, opacity: 1})
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
 
-camera.position.set(0, 0, -3);
-camera.lookAt(mesh.position);
+// const light = new THREE.PointLight(0xFFFF00);
+// light.position.set(10, 0, 25);
+// scene.add(light);
 
-const clock = new THREE.Clock();
+mesh.position.z = -20;
+camera.position.z = -5;
+// camera.lookAt(mesh.position);
 
-let dir = 1;
 const animate = () => {
   requestAnimationFrame(animate);
 
-	const delta = clock.getDelta();
-
-  mesh.rotation.x += delta * 0.5;
-  mesh.rotation.y += delta * 2;
-  mesh.position.x += dir * delta;
-
-	if(mesh.position.x > 2) {
-    dir = -1;
-  } else if(mesh.position.x < -2) {
-    dir = 1;
-  }
-
   renderer.render(scene, camera);
+
 }
 
 animate();
